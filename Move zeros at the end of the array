@@ -1,0 +1,17 @@
+vector<int> moveZeros(int n, vector<int> a) {
+    // Write your code here.
+    vector<int>nonZeros;
+    for(int i=0;i<n;i++){
+        if(a[i]!=0){
+            nonZeros.push_back(a[i]);
+        }
+    }
+
+    for(int i=0;i<nonZeros.size();i++){
+        a[i]=nonZeros[i];
+    }
+    for(int i=nonZeros.size();i<n;i++){
+        a[i]=0;
+    }
+    return a;
+}
