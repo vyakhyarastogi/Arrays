@@ -1,0 +1,38 @@
+int secondLargest(int n,vector<int>a){
+    int maxi=INT_MIN;
+    int largest=-1;
+    for(int i=0;i<n;i++){
+        maxi=max(maxi,a[i]);
+    }
+
+    for(int i=0;i<n;i++){
+        if(a[i]!=maxi && a[i]>largest){
+            largest=a[i];
+        }
+    }
+    return largest;
+}
+
+int secondSmallest(int n,vector<int>a){
+    int mini=INT_MAX;
+    int smallest=INT_MAX;
+    for(int i=0;i<n;i++){
+        mini=min(mini,a[i]);
+    }
+
+    for(int i=0;i<n;i++){
+        if(a[i]!=mini && a[i]<smallest){
+            smallest=a[i];
+        }
+    }
+    return smallest;
+}
+
+vector<int> getSecondOrderElements(int n, vector<int> a) {
+    // Write your code here.
+    int slargest=secondLargest(n,a);
+    int ssmallest=secondSmallest(n,a);
+    return {slargest,ssmallest};
+
+    
+}
