@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void alternate(int arr[], vector<int> &pos, vector<int> &neg, vector<int> &ans)
+{
+    for (int i = 0; i < 6; i++)
+    {
+        if (arr[i] < 0)
+        {
+            neg.push_back(arr[i]);
+        }
+        else
+        {
+            pos.push_back(arr[i]);
+        }
+    }
+
+    for (int i = 0; i < ans.size(); i++)
+    {
+        if (i % 2 == 0)
+        {
+            ans[i] = neg[i/2];
+        }
+        else
+        {
+            ans[i] = pos[(i-1)/2];
+        }
+    }
+}
+
+int main()
+{
+    int arr[6] = {-1, 2, 3, -4, 6, -5};
+
+    vector<int> pos;
+    vector<int> neg;
+
+    vector<int> ans(6);
+    int n = 6;
+
+    alternate(arr, pos, neg, ans);
+
+    for (int i = 0; i < ans.size(); i++)
+    {
+	cout << ans[i] << " ";
+    }
+}
